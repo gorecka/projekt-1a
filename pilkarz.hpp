@@ -12,7 +12,7 @@ class pilkarz {
 	int kartki;
 	int asysty;
 	int gole;
-	int klub; //numer druzyny
+	int klub;
 	
 	public:
 	pilkarz(string imie, string nazwisko, int kartki, int asysty, int gole, int klub);

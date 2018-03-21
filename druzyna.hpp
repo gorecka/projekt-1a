@@ -11,26 +11,23 @@ class druzyna {
 	int zwyciestwa;
 	int przegrane;
 	string trener_imie, trener_nazwisko;
-	int licznosc;
 	int indeks; //numer druzyny
 	static int liczba_druzyn;
 	
 	
 	public:
-	druzyna(string nazwa_druzyny, string trener_imie, string trener_nazwisko, int zwyciestwa, int przegrane, int licznosc);	
+	druzyna(string nazwa_druzyny, string trener_imie, string trener_nazwisko, int zwyciestwa, int przegrane);	
 	void setNazwa_druzyny(string b);
 	void setZwyciestwa(int a);
 	void setPrzegrane(int a);
 	void setTrener_imie(string b);
 	void setTrener_nazwisko(string b);
-	void setLicznosc(int a);
 	void setIndeks(int a);
 	string getNazwa_druzyny();
 	int getZwyciestwa();
 	int getPrzegrane();
 	string getTrener_imie();
 	string getTrener_nazwisko();
-	int getLicznosc();
 	int getIndeks();
 };
 

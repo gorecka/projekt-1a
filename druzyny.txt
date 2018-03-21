@@ -1,2 +1,6 @@
-real wojtek fortuna 5 3 14
-barcelona kasia zak 3 2 13
+Paris_Saint_Germain Unai Emery 40 5
+Real_Madryt Zinedine Zidane 32 7
+Barcelona Ernesto Valverde 34 3
+Bayern_Monachium Jupp Heynckes 31 4
+Atletico_Madryt Diego Simeone 27 6
+Juventus Massimiliano Allegri 24 2

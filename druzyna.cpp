@@ -2,7 +2,7 @@
 using namespace std;
 
 int druzyna::liczba_druzyn = 0;
-druzyna::druzyna(string nazwa_druzyny, string trener_imie, string trener_nazwisko, int zwyciestwa, int przegrane, int licznosc)	 {
+druzyna::druzyna(string nazwa_druzyny, string trener_imie, string trener_nazwisko, int zwyciestwa, int przegrane)	 {
 	liczba_druzyn++;
 	indeks = liczba_druzyn; 
 	this->nazwa_druzyny = nazwa_druzyny;
@@ -10,16 +10,10 @@ druzyna::druzyna(string nazwa_druzyny, string trener_imie, string trener_nazwisk
 	this->trener_nazwisko = trener_nazwisko;
 	this->zwyciestwa = zwyciestwa;
 	this->przegrane = przegrane;
-	this->licznosc = licznosc;
+
 }
 void druzyna::setNazwa_druzyny(string b) {
 	nazwa_druzyny = b;
-}
-void druzyna::setIndeks(int a) {
-	indeks = a;
-}
-void druzyna::setLicznosc(int a) {
-	licznosc = a;
 }
 void druzyna::setPrzegrane(int a) {
 	przegrane = a;
@@ -39,18 +33,15 @@ string druzyna::getNazwa_druzyny() {
 int druzyna::getIndeks() {
 	return indeks;
 }
-int druzyna::getLicznosc() {
-	return licznosc;
-}
 int druzyna::getPrzegrane() {
 	return przegrane;
 }
 int druzyna::getZwyciestwa() {
 	return zwyciestwa;
 }
-int druzyna::getLiczba_druzyn(){
-	return liczba_druzyn;
-}
+//int druzyna::getLiczba_druzyn(){
+//	return liczba_druzyn;
+//}
 string druzyna::getTrener_imie() {
 	return trener_imie;
 }
