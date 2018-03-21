@@ -37,7 +37,6 @@ void wczytajcd() {
 	while (newfile >> imie >> nazwisko >> kartki >> gole >> asysty >> klub) {
 		lista_pilkarzy.push_back(pilkarz(imie, nazwisko, kartki, asysty, gole, klub));
 		licznik_pilkarzy++;
-		cout << licznik_pilkarzy;
 	}
 }
 void zamiana(pilkarz &a, pilkarz &b){ 
