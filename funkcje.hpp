@@ -7,7 +7,7 @@ void zamiana(pilkarz &a, pilkarz &b);
 void zamiana(druzyna &a, druzyna &b);
 void najlepszy_gracz(vector<pilkarz> &a);
 void najbardziej_agresywny(vector<pilkarz> &a);
-void najlepsza_druzyna(vector<druzyna> &a);
+void najlepsza_druzyna(vector<druzyna> &a, vector<pilkarz> &b);
 void wyswietl_pilkarzy(vector<pilkarz> &a, vector<druzyna> &b);
 void wyswietl_druzyny(vector<druzyna> &b, vector<pilkarz> &a);
 void wyswietl_manager(vector<pilkarz> &a);

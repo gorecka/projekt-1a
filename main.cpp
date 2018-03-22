@@ -39,6 +39,8 @@ int main() {
 		switch(indeks){
 			case 1:
 				kup();
+				kup();
+				kup();
 				break;
 			case 2:
 				wyswietl_pilkarzy(lista_pilkarzy, lista_druzyn);
@@ -53,7 +55,7 @@ int main() {
 				najbardziej_agresywny(lista_pilkarzy);	
 				break;
 			case 6:			
-				najlepsza_druzyna(lista_druzyn);
+				najlepsza_druzyna(lista_druzyn, lista_pilkarzy);
 				break;
 			case 7:
 				int wybor, i;
@@ -116,6 +118,10 @@ int main() {
 				}
 				while(1) {
 				cout << "Podaj numer druzyny, ktorej chcesz go sprzedac" << endl;
+				for (int k = 0; k < licznik_druzyn; k++) {
+					cout << (k + 1) << " - " << lista_druzyn[k].getNazwa_druzyny() << endl;
+				}
+				
 				cin >> numer;
 				if(cin.fail() || (numer > licznik_druzyn)) {
 					cout << "Powinienes wprowadzic liczbe nie wieksza niz numer ostatniej druzyny" << endl;

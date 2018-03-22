@@ -13,7 +13,7 @@ pilkarz::pilkarz(string imie, string nazwisko, int kartki, int asysty, int gole,
 	this->gole = gole;
 	this->klub = klub;
 }
-void pilkarz::setAsysty(int a) {
+/*void pilkarz::setAsysty(int a) {
 	asysty = a;
 }
 void pilkarz::setGole(int a) {
@@ -27,7 +27,7 @@ void pilkarz::setNazwisko(string b) {
 }
 void pilkarz::setKartki(int a) {
 	kartki = a;
-}
+} */
 void pilkarz::setKlub(int a) {
 	klub = a;
 }

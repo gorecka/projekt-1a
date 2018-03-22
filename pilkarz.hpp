@@ -16,11 +16,11 @@ class pilkarz {
 	
 	public:
 	pilkarz(string imie, string nazwisko, int kartki, int asysty, int gole, int klub);
-	void setImie(string b);
+	/*void setImie(string b);
 	void setNazwisko(string b);
 	void setKartki(int a);
 	void setAsysty(int a);
-	void setGole(int a);
+	void setGole(int a); */
 	void setKlub(int a);
 	string getImie() const;
 	string getNazwisko() const;

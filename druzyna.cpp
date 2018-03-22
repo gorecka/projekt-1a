@@ -12,7 +12,7 @@ druzyna::druzyna(string nazwa_druzyny, string trener_imie, string trener_nazwisk
 	this->przegrane = przegrane;
 
 }
-void druzyna::setNazwa_druzyny(string b) {
+/* void druzyna::setNazwa_druzyny(string b) {
 	nazwa_druzyny = b;
 }
 void druzyna::setPrzegrane(int a) {
@@ -26,7 +26,7 @@ void druzyna::setTrener_nazwisko(string b) {
 }
 void druzyna::setZwyciestwa(int a) {
 	zwyciestwa = a;
-}
+} */
 string druzyna::getNazwa_druzyny() {
 	return nazwa_druzyny; 
 }

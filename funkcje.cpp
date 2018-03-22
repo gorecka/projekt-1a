@@ -85,11 +85,22 @@ void najbardziej_agresywny(vector<pilkarz> &a){
 		cout << "--------------------------------------------------------------------" << endl;	
 }
 
-void najlepsza_druzyna(vector<druzyna> &a){
+void najlepsza_druzyna(vector<druzyna> &a, vector<pilkarz> &b){
 	int i, j;
 	for(i = 0; i < licznik_druzyn; i++) {
 		for(j = 0; j < licznik_druzyn - 1 - i; j++) {
-			if(((double)a[j].getZwyciestwa() / ((double)a[j].getPrzegrane() + (double)a[j].getZwyciestwa())) < ((double)a[j + 1].getZwyciestwa() / ((double)a[j + 1].getPrzegrane() + (double)a[j + 1].getZwyciestwa()))) { 
+			int suma1;
+			int suma2;
+			for(int k = 0; k < licznik_pilkarzy; k++) {
+				if(b[k].getKlub() == a[j].getIndeks()) {
+					suma1 = suma1 + b[k].getGole();
+				}
+				if(b[k].getKlub() == a[j + 1].getIndeks()) {
+					suma2 = suma2 + b[k].getGole();
+				}
+			}
+			if((((double)a[j].getZwyciestwa() / ((double)a[j].getPrzegrane() + (double)a[j].getZwyciestwa())) + ((double)suma1/200.0))
+				 < (((double)a[j + 1].getZwyciestwa() / ((double)a[j + 1].getPrzegrane() + (double)a[j + 1].getZwyciestwa())) + ((double)suma2 /200.0))) { 
 				zamiana(a[j], a[j+1]);
 			}
 		}
@@ -113,13 +124,17 @@ void wyswietl_pilkarzy(vector<pilkarz> &a, vector<druzyna> &b) {
 			cout << " | Pilkarz zostal kupiony przez managera, nie ma obecnie przydzielonej druzyny" << endl;
 		}
 		else {
-			cout << " | Druzyna: " << b[a[i].getKlub() - 1].getNazwa_druzyny() << endl; 
+			for(int j = 0; j < licznik_druzyn; j++) {
+				if(a[i].getKlub() == b[j].getIndeks()) {
+					cout << " | Druzyna: " << b[j].getNazwa_druzyny() << endl;  
+				}
+			}
 		}
 	}
 	cout << "--------------------------------------------------------------------" << endl;
 }
 
-void wyswietl_druzyny(vector<druzyna> &b, vector<pilkarz> &a){
+void wyswietl_druzyny(vector<druzyna> &b, vector<pilkarz> &a) {
 	for(int i = 0; i < licznik_druzyn; i++){
 		cout << "--------------------------------------------------------------------" << endl;
 		cout << (i + 1) << ". ";
@@ -142,7 +157,8 @@ void skup_pilkarza(int indeks) {
 	lista_pilkarzy[indeks - 1].getNazwisko(), lista_pilkarzy[indeks - 1].getKartki(), lista_pilkarzy[indeks - 1].getAsysty(), 
 	lista_pilkarzy[indeks - 1].getGole(), lista_pilkarzy[indeks - 1].getKlub()));
 	lista_pilkarzy[indeks - 1].setKlub(-8);
-	budzet = budzet - 100000;	
+	int wartosc = 100000 + 2000*lista_pilkarzy[indeks - 1].getGole() + 1000*lista_pilkarzy[indeks - 1].getAsysty();
+	budzet = budzet - wartosc;	
 	licznik_managera ++;
 } 
 
@@ -156,10 +172,11 @@ void sprzedaj_pilkarza(int indeks_managera, int indeks_druzyny) {
 			break;
 		}
 	}
+	int wartosc = 100000 + 2000*lista_pilkarzy[i].getGole() + 1000*lista_pilkarzy[i].getAsysty() + 10000;
 	zamiana(lista_managera[indeks_managera - 1], lista_managera[licznik_managera - 1]);
 	lista_managera.pop_back();
 	licznik_managera -= 1;
-	budzet += 100000;
+	budzet += wartosc;
 }
 
 void wyswietl_manager(vector<pilkarz> &a) {
@@ -174,8 +191,6 @@ void wyswietl_manager(vector<pilkarz> &a) {
 }
 
 void kup() {
-	srand(time (NULL));
-	
 	int n = (rand() % 60);
 	skup_pilkarza(n);
 	int k = (rand() % 50);
@@ -186,8 +201,9 @@ void kup() {
 	k = (k % 3) + 1;
 	m = (m % 6) + 1;
 	cout << "Numer sprzedawanego: "<< k << " Numer druzyny: " << m << endl;
-	cout << "Sprzedajemy: " << lista_managera[k - 1] << " Do klubu:  " << lista_druzyn[m - 1].getNazwa_druzyny() << endl;
+	cout << "Sprzedajemy: " << lista_managera[k - 1] << "Do klubu:  " << lista_druzyn[m - 1].getNazwa_druzyny() << endl;
 	sprzedaj_pilkarza(k, m);
 	wyswietl_manager(lista_managera);
 	wyswietl_druzyny(lista_druzyn, lista_pilkarzy);
 }
+
