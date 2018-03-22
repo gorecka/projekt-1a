@@ -58,6 +58,7 @@ int main() {
 			case 7:
 				int wybor, i;
 				while(1) {
+				int n = 0;
 				cout << "Podaj numer pilkarza, ktorego chcesz kupic" << endl;
 				cout << "Zeby wrocic do menu wpisz -1" << endl;
 				cin >> wybor;
@@ -77,12 +78,16 @@ int main() {
 				for(i = 0; i < licznik_managera; i++){
 					if(lista_managera[i].getNazwisko() == lista_pilkarzy[wybor - 1].getNazwisko()){
 						cout << "Juz kupiles tego pilkarza" << endl;
+						n = 2;
 						break;
-					}		
+					}	
+					
 				}
-				if((licznik_managera > 0) && (lista_managera[i].getNazwisko() == lista_pilkarzy[wybor - 1].getNazwisko())) {
+				if(n == 2) {
+					if((licznik_managera > 0) && (lista_managera[i].getNazwisko() == lista_pilkarzy[wybor - 1].getNazwisko())) {
 						continue;
 					}
+				}	
 				break;
 				}
 				if((wybor == -1) || (budzet < 100000)) {
@@ -91,24 +96,39 @@ int main() {
 				skup_pilkarza(wybor);
 				break;
 			case 8:
+				int numer;
+				if(licznik_managera == 0) {
+					cout << " Nie masz pilkarzy do sprzedania" << endl;
+					break;
+				}
+				while(1) {
 				cout << "Podaj numer pilkarza, ktorego chcesz sprzedac z listy managera" << endl;
 				cout << "Zeby wrocic do menu wpisz -1" << endl;
 				cin >> wybor;
 				if(cin.fail() || (wybor > licznik_managera)) {
-					cout << "powinienes wprowadzic liczbe nie wieksza niz numer ostatniego pilkarza" << endl;
+					cout << "Powinienes wprowadzic liczbe nie wieksza niz numer ostatniego pilkarza" << endl;
 					cin.clear();
 					cin.sync();
+					continue;
 				}
 				if(wybor == -1) {
 					break;
 				}
-				int numer;
+				while(1) {
 				cout << "Podaj numer druzyny, ktorej chcesz go sprzedac" << endl;
 				cin >> numer;
-				if(cin.fail() || (wybor > licznik_druzyn)) {
+				if(cin.fail() || (numer > licznik_druzyn)) {
 					cout << "Powinienes wprowadzic liczbe nie wieksza niz numer ostatniej druzyny" << endl;
 					cin.clear();
 					cin.sync();
+					continue;
+				}
+				break;
+				}
+				break;
+				}
+				if(wybor == -1) {
+					break;
 				}
 				sprzedaj_pilkarza(wybor, numer);
 				break;	
