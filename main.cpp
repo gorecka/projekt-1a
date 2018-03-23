@@ -31,7 +31,7 @@ int main() {
 		if(cin.fail()) {
 			cout << "Powinienes wprowadzic liczbe" << endl << endl;
 			cin.clear();
-			cin.sync();	
+			cin.ignore();	
 			continue;
 		}
 				
@@ -67,7 +67,7 @@ int main() {
 				if(cin.fail() || (wybor > licznik_pilkarzy)) {
 					cout << "powinienes wprowadzic liczbe nie wieksza niz numer ostatniego pilkarza" << endl;
 					cin.clear();
-					cin.sync();
+					cin.ignore();
 					continue;
 				}
 				if(wybor == -1) {
@@ -110,7 +110,7 @@ int main() {
 				if(cin.fail() || (wybor > licznik_managera)) {
 					cout << "Powinienes wprowadzic liczbe nie wieksza niz numer ostatniego pilkarza" << endl;
 					cin.clear();
-					cin.sync();
+					cin.ignore();
 					continue;
 				}
 				if(wybor == -1) {
@@ -126,7 +126,7 @@ int main() {
 				if(cin.fail() || (numer > licznik_druzyn)) {
 					cout << "Powinienes wprowadzic liczbe nie wieksza niz numer ostatniej druzyny" << endl;
 					cin.clear();
-					cin.sync();
+					cin.ignore();
 					continue;
 				}
 				break;
